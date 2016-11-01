@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="utf-8">
+  <title>sql2o - easy database query library</title>
+  <meta name="description" content="easy database query library">
+  <meta name="author" content="Lars Aaberg">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link href="http://fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/skeleton.css">
+  <link rel="stylesheet" href="css/prism.css">
+  <link rel="icon" type="image/png" href="images/favicon.png">
+
+  <script src="js/prism.js"></script>
+
+</head>
+<body>
+
+  <div id="menu-bar">
+    <a id="logo-small" href="/" class="u-pull-left">
+      <img src="images/logo-small.png" alt="small logo" />
+    </a>
+    <div class="container">
+      <a class="top-link-btn" href="https://github.com/aaberg/sql2o/wiki"><span>Documentation</span></a>
+      <a class="top-link-btn" href="http://api.sql2o.org/1.5.4/"><span>Javadoc</span></a>
+      <a class="top-link-btn" href="https://groups.google.com/forum/#!forum/sql2o"><span>Google group</span></a>
+      <a class="top-link-btn" href="https://github.com/aaberg/sql2o"><span>Github page</span></a>
+    </div>
+  </div>
+
+  <div id="top-banner">
+    <div class="vert-space"></div>
+    <div id="logo-bar">
+    </div>
+  </div>
+
+  <div id="main-content" class="raise container">
+    <div class="row">
+      <div class="one column">&nbsp;</div>
+      <div class="ten columns">
+        <div class="box">
+        Sql2o is a small Java library, that makes it easy to execute sql statements against your JDBC compliant database.
+        </div>
+      </div>
+      <div class="one column">&nbsp;</div>
+
+    </div>
+
+    <div class="text-rows">
+      <div class="row text-row">
+        <div class="five columns">
+          <h4>Execute, fetch and map in just a few lines of code</h4>
+          <p>
+            With sql2o you execute your query, fetch the result and map it to a
+            POJO model, in just a few lines of code.
+          </p>
+          <p>
+            Often it is a one-liner, as long as you don't count the try-with-resouce block.
+          </p>
+        </div>
+        <div class="seven columns">
+          <pre>
+            <code class="language-java">
+public List&lt;Customer&gt; fetchCustomers(customerId) {
+  try (Connection con = sql2o.open()) {
+    final String query =
+        "SELECT id, name, address " +
+        "FROM customers WHERE id = :customerId";
+
+    return con.createQuery(query)
+        .addParameter("customerId", customerId)
+        .executeAndFetch(Customer.class);
+  }
+}
+            </code>
+          </pre>
+        </div>
+      </div>
+
+      <div class="row text-row">
+        <div class="seven columns">
+          <pre>
+            <code class="language-java">
+public void insertCustomer(Customer customer) {
+  final String insertQuery =
+      "INSERT INTO customers (id, name, address) " +
+      "VALUES (:id, :name, :address)";
+
+  try (Connection con = sql2o.beginTransaction()) {
+    con.createQuery(insertQuery)
+        .addParameter("id", customer.getId())
+        .addParameter("name", customer.getName())
+        .addParameter("address", customer.getAddress())
+        .executeUpdate();
+    // Remember to call commit() when a transaction is opened,
+    // default is to roll back.
+    con.commit();
+  }
+}
+            </code>
+          </pre>
+        </div>
+        <div class="five columns">
+          <h4>Inserts, updates and deletes are equally easy</h4>
+          <p>
+            The example to the left demos an INSERT. But the <code class="language-java">executeUpdate()</code> method
+            is used for all statements that alters the database, so you will use
+            it for both inserts, updates and deletes.
+          </p>
+          <p>And, of cause, sql2o supports transactions.</p>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="twelve columns">
+        <center>
+          <div>Want to learn more?</div>
+          <div><a href="https://github.com/aaberg/sql2o/wiki" class="button">Check out the documentation</a></div>
+        </center>
+      </div>
+    </div>
+
+  </div>
+
+  <div id="footer">
+    <div class="container">
+      <div>License: MIT</div>
+    </div>
+  </div>
+
+
+
+</body>
+</html>
