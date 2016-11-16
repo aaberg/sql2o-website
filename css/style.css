@@ -1,5 +1,6 @@
 body{
-  padding:54px 0 0 0
+  padding:54px 0 0 0;
+  font-family: 'Raleway', sans-serif;
 }
 #top-banner {
   /*background: url(../images/top-banner.jpg) 0% 0%  no-repeat;*/
@@ -30,7 +31,7 @@ body{
 
 #main-content {
   font-size: 18pt;
-  color: rgb(102, 89, 92);
+  color: rgb(82, 69, 72);
 }
 
 #footer {
