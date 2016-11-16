@@ -66,6 +66,9 @@
           <p>
             Often it is a one-liner, as long as you don't count the try-with-resouce block.
           </p>
+          <p>
+            Sql2o uses named parameters.
+          </p>
         </div>
         <div class="seven columns">
           <pre>
@@ -112,7 +115,7 @@ public void insertCustomer(Customer customer) {
         <div class="five columns">
           <h4>Inserts, updates and deletes are equally easy</h4>
           <p>
-            The example to the left demos an INSERT. But the <code class="language-java">executeUpdate()</code> method
+            The <code class="language-java">executeUpdate()</code> method
             is used for all statements that alters the database, so you will use
             it for both inserts, updates and deletes.
           </p>
