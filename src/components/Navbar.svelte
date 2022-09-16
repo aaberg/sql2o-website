@@ -1,4 +1,24 @@
-#topnav {
+<script>
+    import logoSmall from '../images/logo-small.png'
+
+    export let expanded = false
+</script>
+
+<div id="topnav" class={expanded ? 'expanded' : ''}>
+    <ul>
+    <li><a class="navlogo" href="/"><img src={logoSmall} alt="small logo" /></a></li>
+    <li class="top-link-btn"><a href="https://github.com/aaberg/sql2o/wiki"><span>Documentation</span></a></li>
+    <li class="top-link-btn"><a href="http://api.sql2o.org/"><span>Javadoc</span></a></li>
+    <li class="top-link-btn"><a href="http://groups.google.com/group/sql2o"><span>Google group</span></a></li>
+    <li class="top-link-btn"><a href="https://github.com/aaberg/sql2o"><span>Github page</span></a></li>
+    <li class="icon">
+        <button on:click={() => expanded = !expanded}>&#9776;</button>
+    </li>
+    </ul>
+</div>
+
+<style>
+    #topnav {
   padding: 0;
   margin: 0;
   /*height:54px;*/
@@ -22,12 +42,13 @@
   margin:0;
 }
 
-#topnav a {
+#topnav a, #topnav button {
   text-decoration: none;
   vertical-align: top;
   display: inline-block;
   outline: 0;
   font-size: 13pt;
+  border: 0;
 }
 
 #topnav li.icon {
@@ -39,7 +60,7 @@
     height: 54px;
 }
 
-#topnav li a {
+#topnav li a, #topnav li button {
   color:white;
     
 }
@@ -102,3 +123,5 @@
   }
 }
 
+
+</style>

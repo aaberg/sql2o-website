@@ -1,0 +1,97 @@
+---
+import '../styles/normalize.css'
+import '../styles/skeleton.css'
+import '../styles/style.css'
+
+import { Content as BasicExample } from '../markdown/basic-example.md'
+import { Content as InsertExample} from '../markdown/insert-example.md'
+
+
+import logo from '../images/logo.png'
+
+import Layout from '../layouts/Layout.astro'
+import Navbar from '../components/Navbar.svelte'
+
+---
+
+<style is:global>
+	pre {
+		padding: 2rem;
+		border-radius: 3pt;
+		box-shadow: 0 0 1rem black;
+	}
+</style>
+
+<Layout title="test">
+    <Navbar client:idle />
+    <div id="top-banner">
+    <div class="vert-space"></div>
+    <div id="logo-bar">
+        <img src={logo} alt="logo" />
+    </div>
+    </div>
+
+    <div id="main-content" class="raise container">
+    <div class="row">
+        <div class="one column">&nbsp;</div>
+        <div class="ten columns">
+        <div class="box">
+        Sql2o is a small Java library, that makes it easy to execute sql statements against your JDBC compliant database.
+        </div>
+        </div>
+        <div class="one column">&nbsp;</div>
+
+    </div>
+
+    <div class="text-rows">
+        <div class="row text-row">
+        <div class="five columns">
+            <h4>Execute, fetch and map in just a few lines of code</h4>
+            <p>
+            With sql2o you execute your query, fetch the result and map it to a
+            POJO model, in just a few lines of code.
+            </p>
+            <p>
+            Often it is a one-liner, as long as you don't count the try-with-resouce block.
+            </p>
+            <p>
+            Sql2o uses named parameters.
+            </p>
+        </div>
+        <div class="seven columns">
+            <BasicExample />
+        </div>
+        </div>
+
+        <div class="row text-row">
+        <div class="seven columns">
+            <InsertExample />
+        </div>
+        <div class="five columns">
+            <h4>Inserts, updates and deletes are equally easy</h4>
+            <p>
+            The <code class="language-java">executeUpdate()</code> method
+            is used for all statements that alters the database, so you will use
+            it for both inserts, updates and deletes.
+            </p>
+            <p>And, of course, sql2o supports transactions.</p>
+        </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="twelve columns">
+        <center>
+            <div>Want to learn more?</div>
+            <div><a href="https://github.com/aaberg/sql2o/wiki" class="button">Check out the documentation</a></div>
+        </center>
+        </div>
+    </div>
+
+    </div>
+
+    <div id="footer">
+    <div class="container">
+        <div>License: MIT</div>
+    </div>
+    </div>
+</Layout>
