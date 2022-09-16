@@ -2,26 +2,7 @@ body{
   padding:54px 0 0 0;
   font-family: 'Raleway', sans-serif;
 }
-#top-banner {
-  /*background: url(../images/top-banner.jpg) 0% 0%  no-repeat;*/
-  background: url(skyline.png) repeat-x;
-  background-position: left bottom;
-  background-size: 2000px;
-  /*background: linear-gradient(to bottom, rgba(221,221,221,1) 0%,rgba(225,225,225,0) 21%,rgba(235,235,235,0) 81%,rgba(238,238,238,1) 100%);*/
-  /*background-size: auto auto;*/
-  height:350px;
-  position: relative;
-}
 
-#logo-bar {
-  background: rgba(255, 255, 255, 0.8);
-  text-align: center;
-  height: 130px;
-}
-
-#logo-bar img {
-  max-width: 80%;
-}
 
 #code-snippet{
   width: 100%;
